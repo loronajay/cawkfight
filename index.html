@@ -1,0 +1,154 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Noto Serif JP', serif;
+    }
+  </style>
+  <audio id="backgroundMusic" src="sounds/music.mp3" preload="auto" loop></audio>
+  <audio id="attackSound" src="sounds/bigswing.mp3" preload="auto"></audio>
+  <audio id="attackSound2" src="sounds/smallswing.mp3" preload="auto"></audio>
+  <audio id="hitSound" src="sounds/hit.mp3" preload="auto"></audio>
+  <audio id="bigDeath" src="sounds/bigdeath.mp3" preload="auto"></audio>
+  <audio id="smallDeath" src="sounds/smalldeath.mp3" preload="auto"></audio>
+  <audio id="bigJump" src="sounds/bigjump.mp3" preload="auto"></audio>
+  <audio id="smallJump" src="sounds/smalljump.mp3" preload="auto"></audio>
+  <audio id="bigHurt" src="sounds/bighurt.mp3" preload="auto"></audio>
+  <audio id="smallHurt" src="sounds/smallhurt.mp3" preload="auto"></audio>
+
+</head>
+
+<body>
+  <!-- red container div -->
+  <div style="position: relative; display: inline-block">
+    <!-- smaller red container div -->
+    <div 
+      style="
+        position: absolute; 
+        display: flex; 
+        width: 100%; 
+        align-items: center;
+        padding: 20px;
+      "
+    >
+      <!-- player health -->
+      <div style="
+        position: relative; 
+        width: 100%; 
+        display: flex; 
+        justify-content: flex-end;
+        border: 4px solid black; 
+        ">
+        <div style="
+        background-color: red; 
+        height: 30px; 
+        width: 100%
+        "
+        ></div>
+        <div 
+          id="playerHealth" 
+          style="
+            position: absolute; 
+            background: green; 
+            top: 0; 
+            right: 0; 
+            bottom: 0; 
+            width: 100%;
+            "
+        ></div>
+      </div>
+      <!-- timer -->  
+      <div 
+        id="timer"
+        style="
+          background-color: black; 
+          width: 100px; 
+          height: 50px;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          border: 4px solid yellow;
+      "
+      >
+        10
+      </div>
+      <!-- enemy health -->
+      <div style="
+        position: relative;  
+        width: 100%; 
+        border: 4px solid black;
+       "
+      >
+        <div style="background-color: red; height: 30px"></div>
+        <div 
+          id="enemyHealth" 
+          style="
+            position: absolute; 
+            background: green; 
+            top: 0; 
+            right: 0; 
+            bottom: 0; 
+            left: 0;
+            "
+        ></div>
+      </div>
+      <div></div>  
+    </div>
+    <div 
+      id="displayText"
+      style="
+        position: absolute; 
+        color: black; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+      "
+    >
+      Tie
+    </div>
+    <canvas></canvas>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/classes.js"></script>
+  <script src="index.js"></script>
+  <script>
+    // Get a reference to the audio element
+    const backgroundMusic = document.getElementById('backgroundMusic');
+
+    // Play the background music
+    function playBackgroundMusic() {
+      backgroundMusic.play();
+    }
+
+    // Pause the background music
+    function pauseBackgroundMusic() {
+      backgroundMusic.pause();
+    }
+
+    // Adjust the volume of the background music
+    function setMusicVolume(volume) {
+      backgroundMusic.volume = volume;
+    }
+
+    // Start playing background music when the page loads
+    window.addEventListener('load', () => {
+      playBackgroundMusic();
+    });
+
+    
+
+    // ... rest of your code ...
+  </script>
+</body>
